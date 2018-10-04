@@ -2,12 +2,9 @@ package com.info.demo.springbootdemo.controller;
 
 import java.util.List;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.core.MediaType;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,11 +25,14 @@ import com.info.demo.springbootdemo.service.impl.EmploeeServiceImpl;
 public class LandingPageController {
 
 	private Logger logger=Logger.getLogger(LandingPageController.class);
+	
+	@Value(value="${welcome.message}")
+	private String welcomemessage;
 
 	
 	@RequestMapping("/")
 	public String getLandingpage(){
 		logger.info("LandingPageController getLandingpage called...");
-		return "welcome the home page";
+		return welcomemessage;
 	}
 }

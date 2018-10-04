@@ -36,7 +36,7 @@ private Logger logger=Logger.getLogger(LandingPageController.class);
 			
 			 ss= employeeService.getEmployeeService(id);
 				 if(ss==null){
-					 logger.info("LandingPageController....."+ss);
+					 logger.info("LandingPageController.........."+ss);
 					 return new ResponseEntity(ss,HttpStatus.NOT_FOUND);
 					 
 				 }
